@@ -16,14 +16,8 @@ const images = [
     },
   ];
   
-images.forEach(element => {
-    const li = document.createElement('li')
-    const img = document.createElement('img');
-    
-    img.src = element.url;
-    img.alt = element.alt;
-    img.style.width = '300px';
-    
-    li.append(img);
-    gallery.append(li);
-});
+  const markup = images
+  .map(image => `<li><img src="${image.url}" alt="${image.alt}" style="width:300px;"></li>`)
+  .join('');
+
+gallery.insertAdjacentHTML('beforeend', markup);
